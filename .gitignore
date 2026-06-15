@@ -427,3 +427,10 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Crawl_Tools 运行产物
+generated/
+downloads/
+.session/
+logs/
+.env
