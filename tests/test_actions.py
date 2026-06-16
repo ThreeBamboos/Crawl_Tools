@@ -38,7 +38,7 @@ class StubPage:
                 def save_as(self, path): self.page.calls.append(("save_as", path))
             return D(self.page)
 
-    def expect_download(self): return self._Expect(self)
+    def expect_download(self, **kw): return self._Expect(self)
 
 
 def _ctx(tmp_path):

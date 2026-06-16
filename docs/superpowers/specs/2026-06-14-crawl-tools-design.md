@@ -133,7 +133,7 @@ output:
 | `wait` | 等元素/超时 | `selector` / `timeout` |
 | `download` | 配置浏览器截获下一次下载并保存（由前置 `click` 触发） | `save_as` |
 | `extract_table` | 抓 HTML `<table>` → DataFrame | `selector` |
-| `export` | DataFrame 写 xlsx/csv | `save_as` / `format` |
+| `export` | DataFrame 写 xlsx/csv（格式按后缀 .xlsx/.csv）| `save_as` |
 | `manual` | 暂停等人工（过验证码等），满足条件后继续 | `wait_for.selector` / `wait_for.timeout` |
 
 ### 4.4 取数两种模式

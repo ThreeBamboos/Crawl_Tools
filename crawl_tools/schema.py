@@ -60,7 +60,6 @@ class Step(BaseModel):
     value: Optional[str] = None
     timeout: Optional[int] = None
     save_as: Optional[str] = None
-    format: Optional[str] = None
     username_selector: Optional[str] = None
     password_selector: Optional[str] = None
     submit_selector: Optional[str] = None

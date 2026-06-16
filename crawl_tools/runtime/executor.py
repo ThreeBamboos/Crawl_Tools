@@ -14,10 +14,7 @@ class JobError(Exception):
 
 
 def _resolve_creds(creds: Credentials) -> tuple[str, str]:
-    try:
-        check_resolvable([creds.username, creds.password])
-    except MissingCredentialError:
-        raise
+    check_resolvable([creds.username, creds.password])  # reports all missing vars at once
     return resolve_value(creds.username), resolve_value(creds.password)
 
 

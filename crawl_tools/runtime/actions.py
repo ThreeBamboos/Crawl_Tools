@@ -75,7 +75,7 @@ def download(page, step: Step, ctx: Context):
     save_as = fill_placeholders(_require(step, "save_as"), ctx.now)
     target = Path(ctx.output_dir) / save_as
     target.parent.mkdir(parents=True, exist_ok=True)
-    with page.expect_download() as download_info:
+    with page.expect_download(timeout=(step.timeout or 60) * 1000) as download_info:
         page.click(selector)
     download_info.value.save_as(str(target))
 
