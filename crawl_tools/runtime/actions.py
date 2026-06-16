@@ -82,7 +82,10 @@ def download(page, step: Step, ctx: Context):
 
 def extract_table(page, step: Step, ctx: Context):
     selector = _require(step, "selector")
-    html = page.inner_html(selector)
+    # inner_html() returns the matched element's children (no opening tag),
+    # so for a table selector we get a bare <tbody> that pandas/lxml rejects.
+    # Wrap in <table> so both real-browser fragments and full-table strings parse.
+    html = f"<table>{page.inner_html(selector)}</table>"
     tables = pd.read_html(io.StringIO(html))
     if not tables:
         raise ActionError(f"No <table> found inside {selector!r}")
