@@ -1,0 +1,21 @@
+name: erp-a
+login:
+  url: https://erp-a.example.com/login
+  username_selector: "input[name='username']"
+  password_selector: "input[name='password']"
+  submit_selector: "button[type='submit']"
+  success_selector: "a.logout"
+  captcha:
+    manual:
+      reason: "若出现验证码请手动完成"
+      wait_for:
+        selector: "a.logout"
+        timeout: 180
+credentials:
+  username: ${ERP_A_USER}
+  password: ${ERP_A_PASSWORD}
+session:
+  storage_state: ./.session/erp-a.json
+  reuse: true
+browser:
+  headless: false

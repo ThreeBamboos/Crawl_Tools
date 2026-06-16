@@ -1,0 +1,12 @@
+name: erp-a-sales
+platform: erp-a
+steps:
+  - action: navigate
+    url: https://erp-a.example.com/reports/sales
+  - action: wait
+    selector: "table.report-table"
+  - action: download
+    selector: "button.export-excel"
+    save_as: erp-a-sales-{date}.xlsx
+output:
+  dir: ./downloads
